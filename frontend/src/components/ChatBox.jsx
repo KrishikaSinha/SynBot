@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://synbot-z87o.onrender.com';
 
 function getUserId() {
   let userId = localStorage.getItem('synbot_userId');
