@@ -64,7 +64,7 @@ export default function ChatBox({ userName, onLogout }) {
 
   const loadConversations = async () => {
     try {
-      const res = await axios.get(`${API_URL}/conversations/${userId}`);
+      const res = await axios.get(`${API_URL}/api/conversations/${userId}`);
       setConversations(res.data);
     } catch (err) {
       console.error('Failed to load conversations:', err);
@@ -110,7 +110,7 @@ export default function ChatBox({ userName, onLogout }) {
     setIsTyping(true);
 
     try {
-      const res = await axios.post(`${API_URL}/chat`, {
+      const res = await axios.post(`${API_URL}/api/chat`, {
         message: trimmed,
         userId,
         conversationId: convId,
@@ -121,7 +121,7 @@ export default function ChatBox({ userName, onLogout }) {
       console.error('Chat error:', err);
       setMessages((prev) => [
         ...prev,
-        { sender: 'bot', text: 'Connection issue ho gaya. Please backend server check karein aur dobara try karein.', time: new Date() },
+        { sender: 'bot', text: 'Connection issue.', time: new Date() },
       ]);
     } finally {
       setIsTyping(false);
