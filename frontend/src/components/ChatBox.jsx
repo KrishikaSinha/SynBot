@@ -73,7 +73,7 @@ export default function ChatBox({ userName, onLogout }) {
 
   const loadConversationMessages = async (convId) => {
     try {
-      const res = await axios.get(`${API_URL}/conversations/${userId}/${convId}`);
+      const res = await axios.get(`${API_URL}/api/conversations/${userId}/${convId}`);
       const msgs = [];
       res.data.forEach((entry) => {
         msgs.push({ sender: 'user', text: entry.message, time: new Date(entry.createdAt) });
